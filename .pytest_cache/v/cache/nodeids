@@ -1,0 +1,9 @@
+[
+  "tests/test_tasks.py::test_create_task",
+  "tests/test_tasks.py::test_create_task_validation",
+  "tests/test_tasks.py::test_delete_task",
+  "tests/test_tasks.py::test_edit_task",
+  "tests/test_tasks.py::test_index",
+  "tests/test_tasks.py::test_move_task_flow",
+  "tests/test_tasks.py::test_nonexistent_task"
+]

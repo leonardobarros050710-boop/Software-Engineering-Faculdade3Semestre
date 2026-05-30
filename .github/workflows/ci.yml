@@ -1,0 +1,37 @@
+name: Python CI Workflow
+
+# Define em quais eventos o workflow será executado
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Copia o código do repositório para a máquina virtual
+    - name: Checkout repository code
+      uses: actions/checkout@v4
+
+    # 2. Configura a versão do Python desejada
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        cache: 'pip' # Otimiza downloads futuros salvando pacotes em cache
+
+    # 3. Instala as dependências especificadas no requirements.txt
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+    # 4. Executa os testes automatizados utilizando Pytest
+    - name: Run automated tests with Pytest
+      env:
+        FLASK_ENV: testing
+      run: |
+        python -m pytest -v

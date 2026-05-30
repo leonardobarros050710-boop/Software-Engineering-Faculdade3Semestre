@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}Quadro Kanban{% endblock %}
+
+{% block content %}
+<div class="board-header">
+    <div class="board-info">
+        <h2>Painel de Tarefas Kanban</h2>
+        <p>Acompanhe o progresso da equipe em tempo real. As tarefas estão ordenadas por urgência.</p>
+    </div>
+    <div class="board-actions">
+        <a href="{{ url_for('tasks.nova') }}" class="btn-primary">+ Adicionar Tarefa</a>
+    </div>
+</div>
+
+<div class="kanban-board">
+    <!-- Coluna: Pendente (A Fazer) -->
+    <div class="kanban-column" id="col-todo">
+        <div class="column-title">
+            <span class="column-indicator indicator-todo"></span>
+            <h3>A Fazer</h3>
+            <span class="task-count">{{ todo|length }}</span>
+        </div>
+        <div class="column-cards">
+            {% if todo|length == 0 %}
+                <div class="empty-column-state">
+                    <p>Nenhuma tarefa pendente</p>
+                </div>
+            {% else %}
+                {% for tarefa in todo %}
+                    {% include 'components/task_card.html' %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Coluna: Em Andamento -->
+    <div class="kanban-column" id="col-doing">
+        <div class="column-title">
+            <span class="column-indicator indicator-doing"></span>
+            <h3>Em Andamento</h3>
+            <span class="task-count">{{ doing|length }}</span>
+        </div>
+        <div class="column-cards">
+            {% if doing|length == 0 %}
+                <div class="empty-column-state">
+                    <p>Nenhuma tarefa em execução</p>
+                </div>
+            {% else %}
+                {% for tarefa in doing %}
+                    {% include 'components/task_card.html' %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Coluna: Concluído -->
+    <div class="kanban-column" id="col-done">
+        <div class="column-title">
+            <span class="column-indicator indicator-done"></span>
+            <h3>Concluído</h3>
+            <span class="task-count">{{ done|length }}</span>
+        </div>
+        <div class="column-cards">
+            {% if done|length == 0 %}
+                <div class="empty-column-state">
+                    <p>Nenhuma tarefa concluída</p>
+                </div>
+            {% else %}
+                {% for tarefa in done %}
+                    {% include 'components/task_card.html' %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

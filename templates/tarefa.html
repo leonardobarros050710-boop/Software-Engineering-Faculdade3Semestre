@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if tarefa %}
+        Editar Tarefa #{{ tarefa.id }}
+    {% else %}
+        Nova Tarefa
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="form-container-wrapper">
+    <div class="form-card">
+        <div class="form-header">
+            <h2>
+                {% if tarefa %}
+                    Editar Tarefa
+                {% else %}
+                    Nova Tarefa no Quadro
+                {% endif %}
+            </h2>
+            <p>
+                {% if tarefa %}
+                    Altere as informações da tarefa selecionada.
+                {% else %}
+                    Preencha os dados abaixo para inserir uma nova tarefa no Kanban.
+                {% endif %}
+            </p>
+        </div>
+
+        <form method="POST" class="form-task-crud">
+            <!-- Campo de Título -->
+            <div class="form-group">
+                <label for="title">Título da Tarefa <span class="required">*</span></label>
+                <input 
+                    type="text" 
+                    id="title" 
+                    name="title" 
+                    required 
+                    placeholder="Ex: Refatorar módulo de autenticação"
+                    value="{% if request.form.get('title') %}{{ request.form.get('title') }}{% elif tarefa %}{{ tarefa.title }}{% endif %}"
+                    autofocus
+                    class="form-control"
+                >
+                <small class="form-help">Insira um título claro e objetivo para a tarefa.</small>
+            </div>
+
+            <!-- Campo de Descrição -->
+            <div class="form-group">
+                <label for="description">Descrição</label>
+                <textarea 
+                    id="description" 
+                    name="description" 
+                    placeholder="Descreva detalhadamente o escopo, critérios de aceitação ou notas importantes..."
+                    rows="5"
+                    class="form-control"
+                >{% if request.form.get('description') %}{{ request.form.get('description') }}{% elif tarefa %}{{ tarefa.description or '' }}{% endif %}</textarea>
+            </div>
+
+            <!-- Campo de Prioridade (Adicionado como melhoria de escopo) -->
+            <div class="form-group">
+                <label for="priority">Prioridade <span class="required">*</span></label>
+                <select id="priority" name="priority" required class="form-control select-control">
+                    {% set current_priority = request.form.get('priority') or (tarefa.priority if tarefa else 'Média') %}
+                    <option value="Baixa" {% if current_priority == 'Baixa' %}selected{% endif %}>Baixa (Verde)</option>
+                    <option value="Média" {% if current_priority == 'Média' %}selected{% endif %}>Média (Amarelo)</option>
+                    <option value="Alta" {% if current_priority == 'Alta' %}selected{% endif %}>Alta (Vermelho)</option>
+                </select>
+                <small class="form-help">Define a urgência no painel Kanban.</small>
+            </div>
+
+            <!-- Campo de Status -->
+            <div class="form-group">
+                <label for="status">Coluna / Status Inicial <span class="required">*</span></label>
+                <select id="status" name="status" required class="form-control select-control">
+                    {% set current_status = request.form.get('status') or (tarefa.status if tarefa else 'Pendente') %}
+                    <option value="Pendente" {% if current_status == 'Pendente' %}selected{% endif %}>A Fazer (Pendente)</option>
+                    <option value="Em Andamento" {% if current_status == 'Em Andamento' %}selected{% endif %}>Em Andamento</option>
+                    <option value="Concluído" {% if current_status == 'Concluído' %}selected{% endif %}>Concluído</option>
+                </select>
+            </div>
+
+            <!-- Botões de Ação -->
+            <div class="form-actions-bar">
+                <a href="{{ url_for('tasks.index') }}" class="btn-secondary">Cancelar</a>
+                <button type="submit" class="btn-primary">
+                    {% if tarefa %}
+                        Salvar Alterações
+                    {% else %}
+                        Criar Tarefa
+                    {% endif %}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

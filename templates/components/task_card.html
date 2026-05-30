@@ -1,0 +1,57 @@
+<div class="task-card priority-{{ tarefa.priority|lower }}" id="task-card-{{ tarefa.id }}">
+    <div class="task-card-header">
+        <span class="badge badge-priority {{ tarefa.priority|lower }}" title="Prioridade: {{ tarefa.priority }}">
+            {{ tarefa.priority }}
+        </span>
+        <span class="task-date" title="Criada em: {{ tarefa.created_at }}">
+            {{ tarefa.created_at[:10] }}
+        </span>
+    </div>
+    
+    <div class="task-card-body">
+        <h4 class="task-title">{{ tarefa.title }}</h4>
+        {% if tarefa.description %}
+            <p class="task-description">{{ tarefa.description }}</p>
+        {% else %}
+            <p class="task-description empty-desc">Sem descrição disponível.</p>
+        {% endif %}
+    </div>
+    
+    <div class="task-card-footer">
+        <!-- Controles de Fluxo (Kanban status transition) -->
+        <div class="flow-controls">
+            {% if tarefa.status == 'Pendente' %}
+                <form action="{{ url_for('tasks.mover', id=tarefa.id) }}" method="POST" class="inline-form">
+                    <input type="hidden" name="status" value="Em Andamento">
+                    <button type="submit" class="btn-flow" title="Iniciar Tarefa">Iniciar ➔</button>
+                </form>
+            {% elif tarefa.status == 'Em Andamento' %}
+                <form action="{{ url_for('tasks.mover', id=tarefa.id) }}" method="POST" class="inline-form">
+                    <input type="hidden" name="status" value="Pendente">
+                    <button type="submit" class="btn-flow btn-flow-back" title="Voltar para A Fazer">⬅ Voltar</button>
+                </form>
+                <form action="{{ url_for('tasks.mover', id=tarefa.id) }}" method="POST" class="inline-form">
+                    <input type="hidden" name="status" value="Concluído">
+                    <button type="submit" class="btn-flow btn-flow-complete" title="Concluir Tarefa">Concluir ✔</button>
+                </form>
+            {% elif tarefa.status == 'Concluído' %}
+                <form action="{{ url_for('tasks.mover', id=tarefa.id) }}" method="POST" class="inline-form">
+                    <input type="hidden" name="status" value="Em Andamento">
+                    <button type="submit" class="btn-flow btn-flow-reopen" title="Reabrir Tarefa">↺ Retomar</button>
+                </form>
+            {% endif %}
+        </div>
+
+        <!-- Gerenciamento CRUD -->
+        <div class="card-management">
+            <a href="{{ url_for('tasks.editar', id=tarefa.id) }}" class="btn-icon btn-edit" title="Editar Tarefa">
+                ✏️
+            </a>
+            <form action="{{ url_for('tasks.deletar', id=tarefa.id) }}" method="POST" class="delete-form inline-form" onsubmit="return confirmarExclusao('{{ tarefa.title }}')">
+                <button type="submit" class="btn-icon btn-delete" title="Excluir Tarefa">
+                    🗑️
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
