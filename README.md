@@ -1,3 +1,4 @@
+
 # KanbanFlow - Sistema de Gerenciamento Ágil de Tarefas
 
 Trabalho prático desenvolvido para a disciplina de **Engenharia de Software**. O projeto consiste em uma aplicação web didática que implementa um quadro Kanban funcional utilizando o framework Flask para o back-end, SQLite para o banco de dados e testes automatizados com Pytest integrado ao GitHub Actions.
