@@ -228,3 +228,46 @@ A combinação entre testes automatizados e Integração Contínua aproxima o pr
 
 Essas ferramentas permitem identificar problemas de forma antecipada, aumentar a confiabilidade da aplicação e reduzir riscos durante a evolução do sistema.
 
+---
+
+## 12. Respostas às Questões Norteadoras
+
+12.1 Quais são as principais causas de falhas em projetos ágeis e como o GitHub pode ajudar a mitigá-las?
+
+Entre as principais causas de falhas em projetos ágeis estão a falta de organização das tarefas, comunicação ineficiente entre os membros da equipe, ausência de documentação adequada e dificuldades no controle de versões do código.
+
+O GitHub auxilia na mitigação desses problemas por meio de funcionalidades como controle de versão com Git, gerenciamento de tarefas através de quadros Kanban, rastreamento de alterações, revisão de código e integração com ferramentas de automação.
+
+No contexto do projeto KanbanFlow, o GitHub foi utilizado para armazenar o código-fonte, registrar a evolução do projeto por meio de commits e possibilitar a execução automática de testes utilizando GitHub Actions.
+
+12.2 Quem são os principais beneficiados por um sistema de gerenciamento ágil e como eles utilizam as funcionalidades desenvolvidas?
+
+Os principais beneficiados são equipes de desenvolvimento de software, gerentes de projeto, analistas de sistemas e demais profissionais envolvidos na execução e acompanhamento de atividades.
+
+O sistema desenvolvido permite que os usuários criem tarefas, acompanhem seu progresso, alterem status, definam prioridades e visualizem o fluxo de trabalho em um quadro Kanban.
+
+Essas funcionalidades contribuem para uma melhor organização das atividades, aumento da produtividade e maior visibilidade sobre o andamento do projeto.
+
+12.3 Como o uso de ferramentas de controle de qualidade, como GitHub Actions, pode garantir a entrega de um software confiável?
+
+Ferramentas de controle de qualidade automatizam processos importantes de validação do software, reduzindo a possibilidade de erros humanos.
+
+No projeto desenvolvido, o GitHub Actions foi configurado para executar automaticamente os testes sempre que alterações são enviadas ao repositório. Dessa forma, falhas podem ser identificadas rapidamente antes que novas versões sejam incorporadas ao projeto.
+
+Essa abordagem aumenta a confiabilidade do sistema, melhora a qualidade do código e reduz riscos de regressão durante a evolução da aplicação.
+
+12.4 Quais são os principais desafios ao implementar mudanças em um projeto ágil e como lidar com eles?
+
+Projetos ágeis frequentemente passam por mudanças de requisitos durante seu desenvolvimento. Entre os principais desafios estão a necessidade de adaptação da equipe, atualização da documentação, alterações na modelagem de dados e impactos sobre funcionalidades já implementadas.
+
+No KanbanFlow, um exemplo foi a inclusão do campo de prioridade das tarefas durante o desenvolvimento. Para lidar com essa mudança, foi necessário atualizar a estrutura do banco de dados, a interface do usuário e a lógica de negócio.
+
+A utilização de práticas ágeis permitiu incorporar essa alteração de forma controlada, sem comprometer os objetivos principais do projeto.
+
+12.5 Como as metodologias ágeis estudadas na disciplina podem ser aplicadas diretamente neste projeto?
+
+As metodologias ágeis podem ser aplicadas diretamente por meio da organização do trabalho em pequenas tarefas, acompanhamento contínuo do progresso e adaptação rápida às mudanças de requisitos.
+
+O Kanban foi a principal metodologia utilizada neste projeto. As tarefas foram organizadas em etapas de desenvolvimento e acompanhadas visualmente por meio de cartões que representam atividades específicas.
+
+Além disso, conceitos como melhoria contínua, entregas incrementais, colaboração e adaptação constante foram aplicados durante todo o desenvolvimento do sistema.
