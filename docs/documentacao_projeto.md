@@ -271,3 +271,17 @@ As metodologias ágeis podem ser aplicadas diretamente por meio da organização
 O Kanban foi a principal metodologia utilizada neste projeto. As tarefas foram organizadas em etapas de desenvolvimento e acompanhadas visualmente por meio de cartões que representam atividades específicas.
 
 Além disso, conceitos como melhoria contínua, entregas incrementais, colaboração e adaptação constante foram aplicados durante todo o desenvolvimento do sistema.
+
+---
+
+## 13. Conclusão
+
+O desenvolvimento do projeto KanbanFlow permitiu a aplicação prática dos conceitos estudados na disciplina de Engenharia de Software, abrangendo desde o levantamento de requisitos até a implementação, testes e documentação do sistema.
+
+Durante a execução do projeto foram utilizadas ferramentas e práticas amplamente empregadas no mercado de tecnologia, incluindo controle de versão com Git e GitHub, gerenciamento de tarefas baseado em Kanban, testes automatizados com Pytest e Integração Contínua utilizando GitHub Actions.
+
+Além dos aspectos técnicos, o projeto proporcionou uma melhor compreensão sobre a importância da organização, documentação e adaptação a mudanças durante o ciclo de desenvolvimento de software.
+
+A implementação da funcionalidade de priorização de tarefas demonstrou, na prática, como alterações de requisitos podem ser incorporadas ao projeto de forma controlada, mantendo a qualidade e a consistência da aplicação.
+
+Como resultado, o KanbanFlow atende aos objetivos propostos pela atividade, fornecendo uma solução funcional para gerenciamento de tarefas e servindo como exemplo da aplicação integrada dos conhecimentos adquiridos ao longo da disciplina.
