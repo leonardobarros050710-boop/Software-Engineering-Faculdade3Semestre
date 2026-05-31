@@ -146,3 +146,43 @@ O desenvolvimento do KanbanFlow permitiu aplicar conceitos fundamentais da Engen
 Durante a execução do projeto foram utilizados princípios de desenvolvimento ágil, versionamento de código, testes automatizados, integração contínua e documentação técnica.
 
 A experiência proporcionou uma visão mais próxima das práticas utilizadas por equipes profissionais de desenvolvimento de software.
+
+---
+
+## 10. Alteração de Escopo
+
+Durante o desenvolvimento do projeto, foi identificada uma oportunidade de melhoria relacionada à organização e priorização das atividades no quadro Kanban.
+
+Inicialmente, o sistema possuía apenas o campo de status para controlar o progresso das tarefas, permitindo que elas fossem classificadas como "A Fazer", "Em Andamento" ou "Concluído". Entretanto, após a análise do fluxo de trabalho, observou-se que tarefas de diferentes níveis de importância eram exibidas sem qualquer mecanismo de priorização.
+
+Dessa forma, foi realizada uma alteração no escopo original do projeto, com a inclusão do atributo **Prioridade da Tarefa**. Esse novo campo passou a permitir que cada tarefa fosse classificada como:
+
+* Baixa Prioridade;
+* Média Prioridade;
+* Alta Prioridade.
+
+A alteração trouxe benefícios importantes para a utilização do sistema, pois possibilitou uma melhor organização das atividades e facilitou a identificação das tarefas mais críticas pela equipe.
+
+### Impactos da Alteração
+
+A inclusão do campo de prioridade exigiu modificações em diferentes partes do sistema:
+
+#### Banco de Dados
+
+Foi necessário adicionar um novo atributo responsável por armazenar a prioridade de cada tarefa na estrutura de dados persistida em SQLite.
+
+#### Interface do Usuário
+
+A interface foi adaptada para exibir visualmente o nível de prioridade de cada tarefa, permitindo que o usuário identifique rapidamente atividades mais importantes.
+
+#### Lógica de Negócio
+
+As regras do sistema passaram a considerar a prioridade das tarefas durante a exibição das informações, favorecendo a organização das atividades dentro do quadro Kanban.
+
+### Justificativa da Mudança
+
+A alteração foi motivada pela necessidade de tornar o sistema mais aderente às práticas utilizadas em ambientes reais de desenvolvimento de software.
+
+Em equipes de desenvolvimento, nem todas as tarefas possuem a mesma importância ou urgência. A utilização de níveis de prioridade permite que a equipe concentre esforços inicialmente nas atividades mais relevantes para o projeto.
+
+Dessa forma, a mudança de escopo agregou valor ao produto final sem comprometer os objetivos originais definidos para o projeto.
