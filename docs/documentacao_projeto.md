@@ -186,3 +186,45 @@ A alteração foi motivada pela necessidade de tornar o sistema mais aderente à
 Em equipes de desenvolvimento, nem todas as tarefas possuem a mesma importância ou urgência. A utilização de níveis de prioridade permite que a equipe concentre esforços inicialmente nas atividades mais relevantes para o projeto.
 
 Dessa forma, a mudança de escopo agregou valor ao produto final sem comprometer os objetivos originais definidos para o projeto.
+
+---
+
+## 11. Testes Automatizados e Integração Contínua
+
+A garantia da qualidade do software foi realizada por meio da utilização de testes automatizados e de um processo de Integração Contínua (Continuous Integration – CI).
+
+Os testes automatizados foram implementados utilizando o framework **Pytest**, amplamente utilizado no ecossistema Python para validação de funcionalidades e identificação precoce de falhas.
+
+Os casos de teste desenvolvidos têm como objetivo verificar o correto funcionamento das principais funcionalidades do sistema, incluindo operações relacionadas ao gerenciamento de tarefas, validação de dados e regras de negócio implementadas na aplicação.
+
+A utilização de testes automatizados oferece diversos benefícios, entre eles:
+
+* Redução da ocorrência de erros durante o desenvolvimento;
+* Maior confiabilidade das funcionalidades implementadas;
+* Facilidade para identificar regressões após alterações no código;
+* Agilidade na validação de novas funcionalidades.
+
+### Integração Contínua com GitHub Actions
+
+Além dos testes automatizados, o projeto utiliza o serviço **GitHub Actions** para executar verificações automáticas sempre que alterações são enviadas ao repositório.
+
+O workflow de Integração Contínua foi configurado para ser executado em eventos de:
+
+* Push para as branches principais do projeto;
+* Abertura de Pull Requests.
+
+Durante a execução do workflow, são realizadas as seguintes etapas:
+
+1. Download do código-fonte do repositório;
+2. Configuração do ambiente Python;
+3. Instalação das dependências do projeto;
+4. Execução automática dos testes utilizando Pytest.
+
+Esse processo garante que o código enviado ao repositório seja validado continuamente, contribuindo para a manutenção da qualidade e da estabilidade do sistema.
+
+### Benefícios para o Projeto
+
+A combinação entre testes automatizados e Integração Contínua aproxima o projeto das práticas adotadas em ambientes profissionais de desenvolvimento de software.
+
+Essas ferramentas permitem identificar problemas de forma antecipada, aumentar a confiabilidade da aplicação e reduzir riscos durante a evolução do sistema.
+
